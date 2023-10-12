@@ -1,0 +1,43 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<main>
+    <a href="{% url 'catalog:category_create' %}" class="btn btn-success mb-3">Добавить категорию</abutton></a>
+    <a href="{% url 'catalog:product_create' %}" class="btn btn-success mb-3">Добавить Продукт</abutton></a>
+    {% for object in object_list %}
+
+    <div class="col-md-4">
+        <div class="card mb-2 box-shadow">
+            <div class="card-body">
+                <p class="card-text">{{object.name}} - {{object.overview|slice:100}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <p>
+                            <a href="{% url 'catalog:category_product' object.pk %}"
+                               class="btn btn-primary my-2">Список</a>
+                        </p>
+                    </div>
+                    <div class="btn-group">
+                        <p>
+                            <a href="{% url 'catalog:category_update' object.pk %}"
+                               class="btn btn-primary my-2">Изменить</a>
+                        </p>.
+                    </div>
+                    <div class="btn-group">
+                        <p>
+                            <a href="{% url 'catalog:category_delete' object.pk %}"
+                               class="btn btn-danger my-2">Удалить</a>
+                        </p>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+    {% endfor %}
+</main>
+
+{% endblock %}

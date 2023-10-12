@@ -1,0 +1,31 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="col-12 text-center">
+
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="card mb-4 box-shadow ">
+            <div class="card-header">
+                <div class="row text-center">
+                    <div class="col-8"><h4 class="my-0 font-weight-normal">Просмотр версии</h4></div>
+                </div>
+            </div>
+            <div class="card-body text-center">
+                <div class="row-4"><h2>{{object.product|slice:20}} </h2></div>
+                <div class="row-4"><h2>номер версии: {{object.versions_number}} </h2></div>
+                <div class="row-4"><h3>название версии: {{object.versions_name}}</h3></div>
+                <div class="row-4"><h3>активность: {{object.versions_activity}}</h3></div>
+
+                <div class="row-4"><h3>активность: {{object.Product_set.all}}</h3></div>
+                {{object.product_set.all}}
+            </div>
+            <a href="{% url 'version:update' object.pk %}" class="btn btn-success mb-3">Изменить</abutton></a>
+            <a href="{% url 'version:list' %}" class="btn btn-success mb-3">К версиям</abutton></a>
+            <a href="{% url 'version:delete' object.pk %}" class="btn btn-danger">Удалить</abutton></a>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+

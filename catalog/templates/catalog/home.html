@@ -1,0 +1,73 @@
+{% extends 'catalog/base.html' %}
+<li><a class="text-muted" href="{% url 'catalog:contacts'%}">Контакты</a></li>
+<li><a class="text-muted" href="{% url 'catalog:products'%}">Продукты</a></li>
+<li><a class="text-muted" href="{% url 'catalog:home'%}">Домой</a></li>
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <p class="card-text">Контакты</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <p>
+                                <a href="{% url 'catalog:contacts'%}" class="btn btn-primary my-2">Перейти</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="col-md-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <p class="card-text">Продукты</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <p>
+                                <a href="{% url 'catalog:products'%}" class="btn btn-primary my-2">Перейти</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="col-md-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <p class="card-text">Версия</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <p>
+                                <a href="{% url 'version:list'%}" class="btn btn-primary my-2">Перейти</a>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <p class="card-text">Блог</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <p>
+                                <a href="{% url 'blog:list'%}" class="btn btn-primary my-2">Перейти</a>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}

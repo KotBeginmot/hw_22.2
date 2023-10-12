@@ -1,0 +1,94 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <title>Homepage</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/album.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Ссылки</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'catalog:contacts'%}" class="text-white">Контакты</a></li>
+                        <li><a href="{% url 'catalog:products'%}" class="text-white">Продукты</a></li>
+                        <li><a href="{% url 'catalog:home'%}" class="text-white">Домой</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+
+                {% if user.is_authenticated %}
+
+                <strong><a href="{% url 'users:update'%}" class="text-white">Редактирование профиля </a></strong>
+                <strong><a href="{% url 'users:logout'%}" class="text-white"> Выход</a></strong>
+                {%else%}
+                <strong><a href="{% url 'users:register'%}" class="text-white">Регистрация </a></strong>
+                <strong><a href="{% url 'users:login'%}" class="text-white"> Вход</a></strong>
+                {% endif %}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Django homeworks</h1>
+
+            <p>
+                <a href="{% url 'catalog:home' %}" class="btn btn-primary my-2">Homepage</a>
+                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+        </div>
+    </div>
+    </div>
+
+</main>
+
+
+{% block content %}
+{% endblock %}
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="{% static 'js/popper.min.js'%} "></script>
+<script src="{% static 'js/bootstrap.min.js' %}"
+</script>
+<script src="{% static 'js/holder.min.js' %}"
+</script>
+</body>
+</html>

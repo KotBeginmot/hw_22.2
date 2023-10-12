@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <main class="row mt 5">
+        <div class="container">
+            <header>
+                <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal text-body-emphasis">Главная</h1>
+                <p class="fs-5 text-body-secondary">Вы находитесь на сайте, предназначенном для продажи товаров</p>
+                </div>
+            </header>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="/contacts/">Контакты</a></li>
+            </ul>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="/home/">Home</a></li>
+            </ul>
+
+        </div>
+    </main>
+
+{% for object in object_list %}
+    <div class="row mt 5"> {{ object }} </div>
+{% endfor %}
+</body>
+</html>
